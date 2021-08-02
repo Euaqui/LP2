@@ -1,3 +1,6 @@
 # LP2
-<p>pelos poderes de grayskull</p> 
-<p>_EU TENHO A FORÇA!!!!_</p>
+pelos poderes de grayskull...   
+**EU TENHO A FORÇA!!!!**
+
+>- Luke, eu sou o seu pai...  
+>- **NAAAAAAAAAAAAAAO**
