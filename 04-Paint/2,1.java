@@ -1,3 +1,6 @@
+//ARQUIVO .PNG  AQUI
+
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -49,6 +52,14 @@ class Rect {
 
     void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+	g.setColor(new Color(255,255,0));
         g2d.drawRect(this.x,this.y, this.w,this.h);
+	g.setColor(new Color(0,245,255));
+	g2d.fillRect(100,150, 50,150);
+	g.setColor(new Color(255,0,0));
+	g2d.fillRect(150,300, 150,150);
+	g.setColor(new Color(255,215,0));
+	g2d.fillRect(200,40, 50,50);
+	
     }
 }
