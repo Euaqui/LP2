@@ -1,12 +1,18 @@
+// SEGUE O  .PNG
+
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
   
 public class RectApp {
     public static void main (String[] args) {
-        Rect r1 = new Rect(1,1, 10,10);
+        Rect r1 = new Rect(1,1, 10,10); 
 	r1.Area();
         r1.print();
+	r1.drag(5,3);
+	r1.print();
+	
     }
 }
 class Rect {
@@ -25,12 +31,11 @@ class Rect {
 	return area;
     }
     void drag(int dx, int dy){
-	this.dx=dx;
-	this.dy=dy;
-	Rect posicao = new Rect(1+dx,1+dy, 10,10);
+        this.x = this.x + dx;
+        this.y = this.y + dy;
     }
 
     void print () {
-        System.out.format("Retangulo de tamanho (%d,%d) na posicao(%d,%d) na area(%d).\n",this.w, this.h, this.x, this.y, this.area);
+        System.out.format("Retangulo de tamanho (%d,%d) na posicao(%d,%d) e na area(%d).\n",this.w, this.h, this.x, this.y, this.area);
     }
 }
