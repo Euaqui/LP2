@@ -1,5 +1,5 @@
 //ARQUIVO .PNG  AQUI
-//https://user-images.githubusercontent.com/88299200/130367846-d7c35455-b7fe-427a-8440-2e7da31215f5.png
+
 
 import java.awt.*;
 import java.awt.event.*;
@@ -52,6 +52,8 @@ class Rect {
 
     void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+	g.setColor(new Color(139,0,139));
+	g2d.fillRect(this.x,this.y, this.w,this.h);
 	g.setColor(new Color(255,255,0));
         g2d.drawRect(this.x,this.y, this.w,this.h);
 	g.setColor(new Color(0,245,255));
