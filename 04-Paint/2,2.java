@@ -1,5 +1,5 @@
 //SEGUE ARQUIVO  '.PNG'
-//https://user-images.githubusercontent.com/88299200/130461716-380faa4e-e90c-47f4-b8fd-6a30c871710b.png
+//https://user-images.githubusercontent.com/88299200/131145973-785f8bc1-7efd-4706-8eec-76e90981d5e3.png
 
 import java.awt.*;
 import java.awt.event.*;
@@ -16,7 +16,7 @@ class RectEllipseApp {
 
 class RectEllipseFrame extends JFrame {
     Rect r1;
-    Ellipse e1;
+    Ellipse e1,e2,e3;
 
     RectEllipseFrame () {
         this.addWindowListener (
@@ -30,12 +30,16 @@ class RectEllipseFrame extends JFrame {
         this.setSize(350, 350);
         this.r1 = new Rect(50,50, 100,30);
         this.e1 = new Ellipse(50,100, 100,30);
+	this.e2 = new Ellipse(70,100, 130,30);
+	this.e3 = new Ellipse(150,150, 30,90);
     }
 
     public void paint (Graphics g) {
         super.paint(g);
         this.r1.paint(g);
         this.e1.paint(g);
+	this.e2.paint(g);
+	this.e3.paint(g);
     }
 }
 
@@ -78,17 +82,22 @@ class Ellipse {
 
     void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-	      g.setColor(new Color(139,0,139));
-	      g2d.fillOval(this.x,this.y, this.w,this.h);
-	      g.setColor(new Color(255,255,0));
-        g2d.draw(new Ellipse2D.Double(this.x,this.y, this.w,this.h));
-	      g.setColor(new Color(0,245,255));
-	      g2d.fillOval(100,150, 50,150);
-	      g.setColor(new Color(255,0,0));
-	      g2d.fillOval(150,300, 150,150);
-	      g.setColor(new Color(0,255,0));
-        g2d.draw(new Ellipse2D.Double(150,300, 150,150));
-	      g.setColor(new Color(255,215,0));
-	      g2d.fillOval(200,40, 50,50);
+	g.setColor(new Color(139,0,139));
+	g2d.fillOval(50,50, 100,30);
+	g.setColor(new Color(255,255,0));
+        g2d.draw(new Ellipse2D.Double(50,50, 100,30));
+
+	g.setColor(new Color(0,245,255));
+	g2d.fillOval(150,150, 30,90);
+	g.setColor(new Color(255,215,0));
+	g2d.draw(new Ellipse2D.Double(150,150, 30,90));
+
+
+	g.setColor(new Color(255,0,0));
+	g2d.fillOval(70,100, 130,30);
+	g.setColor(new Color(0,255,0));
+        g2d.draw(new Ellipse2D.Double(70,100, 130,30));
+
+	
     }
 }
