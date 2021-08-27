@@ -2,11 +2,11 @@ package figures;
 
 import java.awt.*;
 
-public class triangle {
-    int x1,x2,x3, y1,y2,y3;
+public class Triangle {
+    public int x1,x2,x3, y1,y2,y3;
     int w, h;
 
-    public triangle(int x1, int x2, int x3, int y1, int y2, int y3){
+    public Triangle(int x1, int x2, int x3, int y1, int y2, int y3){
 	this.x1 = x1;
 	this.x2 = x2;
 	this.x3 = x3;
@@ -22,6 +22,9 @@ public class triangle {
     }
     public void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+	g.setColor(new Color(139,0,139));
+	g2d.fillPolygon(new int[] {this.x1, this.x2, this.x3}, new int[] {this.y1, this.y2, this.y3}, 3);
+	g.setColor(new Color(255,255,0));
         g2d.drawPolygon(new int[] {this.x1, this.x2, this.x3}, new int[] {this.y1, this.y2, this.y3}, 3);
     }
 
