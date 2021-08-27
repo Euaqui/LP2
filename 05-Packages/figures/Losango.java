@@ -25,6 +25,9 @@ public class Losango {
     }
     public void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+	g.setColor(new Color(0,245,255));
+	g2d.fillPolygon(new int[] {this.x1, this.x2, this.x3, this.x4}, new int[] {this.y1, this.y2, this.y3, this.y4}, 4);
+	g.setColor(new Color(255,0,0));
 	g2d.drawPolygon(new int[] {this.x1, this.x2, this.x3, this.x4}, new int[] {this.y1, this.y2, this.y3, this.y4}, 4);
     }
 
