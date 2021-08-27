@@ -1,5 +1,6 @@
-//Segue arquivos  '.PNG'
+//Seguem arquivos  '.PNG'
 //tarefa 3.1) https://user-images.githubusercontent.com/88299200/131157998-34b7e803-5caa-46fa-aa7f-524d7c5f522a.png
+//tarefa 3.2) https://user-images.githubusercontent.com/88299200/131161495-58fd73a2-66c3-4cdc-bb48-ba14bc07f4d0.png
 
 import java.awt.*;
 import java.awt.event.*;
