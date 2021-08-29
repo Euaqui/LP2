@@ -3,8 +3,8 @@ package figures;
 import java.awt.*;
 
 public class Triangle {
-    public int x1,x2,x3, y1,y2,y3;
-    int w, h;
+    private int x1,x2,x3, y1,y2,y3;
+    private int w, h;
 
     public Triangle(int x1, int x2, int x3, int y1, int y2, int y3){
 	this.x1 = x1;
