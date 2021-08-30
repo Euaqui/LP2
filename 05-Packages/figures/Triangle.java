@@ -14,6 +14,12 @@ public class Triangle {
         this.y1 = y1;
         this.y2 = y2;
         this.y3 = y3;
+	this.a = a;
+	this.b = b;
+	this.c = c;
+	this.a1 = a1;
+	this.b1 = b1;
+	this.c1 = c1;
 	this.w = this.y3 - this.y1;
 	this.h = y2-((this.y3 + this.y1)/2);
     }
@@ -23,9 +29,9 @@ public class Triangle {
     }
     public void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-	g.setColor(new Color(139,0,139));
+	g.setColor(new Color(this.a,this.b,this.c));
 	g2d.fillPolygon(new int[] {this.x1, this.x2, this.x3}, new int[] {this.y1, this.y2, this.y3}, 3);
-	g.setColor(new Color(255,255,0));
+	g.setColor(new Color(this.a1,this.b1,this.c1));
         g2d.drawPolygon(new int[] {this.x1, this.x2, this.x3}, new int[] {this.y1, this.y2, this.y3}, 3);
     }
 
