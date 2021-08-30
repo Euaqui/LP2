@@ -4,9 +4,10 @@ import java.awt.*;
 
 public class Triangle {
     private int x1,x2,x3, y1,y2,y3;
+    private int a,b,c, a1,b1,c1;
     private int w, h;
 
-    public Triangle(int x1, int x2, int x3, int y1, int y2, int y3){
+    public Triangle(int x1, int x2, int x3, int y1, int y2, int y3, int a, int b, int c, int a1, int b1, int c1){
 	this.x1 = x1;
 	this.x2 = x2;
 	this.x3 = x3;
