@@ -34,7 +34,7 @@ class PackFrame extends JFrame {
         this.setSize(350, 350);
         this.r1 = new Rect(50,50, 100,30);
         this.e1 = new Ellipse(50,100, 100,30);
-	this.t1 = new Triangle(10,20,30, 150,50,150);
+	this.t1 = new Triangle(10,20,30, 150,50,150, 139,0,139, 255,255,0);
 	this.l1 = new Losango(20,30,40,30, 200,245,200,160, 0,245,255, 255,0,0);
     }
 
