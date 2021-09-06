@@ -1,4 +1,6 @@
 //RETANGULO E ELIPSE
+//Segue arquivo ".PNG"
+//https://user-images.githubusercontent.com/88299200/132219055-f77d2ace-4fd3-4e62-930d-2eb76ced9cfb.png
 
 import java.awt.*;
 import java.awt.event.*;
