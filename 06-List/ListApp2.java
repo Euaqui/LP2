@@ -1,4 +1,6 @@
 //ELIPSES
+//Segue arquivo ".PNG"
+//https://user-images.githubusercontent.com/88299200/132219368-ea9bdfa7-b9cd-4eb4-9cc6-ba23c42070a7.png
 
 import java.awt.*;
 import java.awt.event.*;
