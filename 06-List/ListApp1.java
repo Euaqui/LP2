@@ -1,4 +1,7 @@
 // RETANGULOS
+//Segue arquivo ".PNG"
+//https://user-images.githubusercontent.com/88299200/132219305-b589d1aa-9294-4039-9942-02a3454ed1c6.png
+
 
 import java.awt.*;
 import java.awt.event.*;
