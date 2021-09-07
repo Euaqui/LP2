@@ -33,11 +33,11 @@ class ListFrame extends JFrame {
             new KeyAdapter() {
                 public void keyPressed (KeyEvent evt) {
                     int x = rand.nextInt(350);
-		            int x2 = rand.nextInt(350);
-		            int x3 = rand.nextInt(350);
+		    int x2 = rand.nextInt(350);
+		    int x3 = rand.nextInt(350);
                     int y = rand.nextInt(350);
-		            int y2 = rand.nextInt(350);
-		            int y3 = rand.nextInt(350);
+		    int y2 = rand.nextInt(350);
+		    int y3 = rand.nextInt(350);
                     int w = rand.nextInt(50);
                     int h = rand.nextInt(50);
                     if (evt.getKeyChar() == 'r') {
@@ -47,7 +47,7 @@ class ListFrame extends JFrame {
                         figs.add(new Ellipse(x,y, w,h));
                     } else if (evt.getKeyChar() == 't') {
                         figs.add(new Triangle(x,x2,x3, y,y2,y3));
-		            } else if (evt.getKeyChar() == 'l') {
+		    } else if (evt.getKeyChar() == 'l') {
                         figs.add(new Line(x,y, x2,y2));
 		    }
                     repaint();
