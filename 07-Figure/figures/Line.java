@@ -3,8 +3,7 @@ package figures;
 import java.awt.*;
 
 public class Line extends Figure{
-    int x, y;
-    int x1, y1;
+    
 
     public Line (int x, int y, int x1, int y1) {
         this.x = x;
