@@ -1,12 +1,16 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.event.MouseEvent;
+
 import javax.swing.*;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 import figures.*;
 
-class ListApp {
+
+class Projeto {
     public static void main (String[] args) {
         ListFrame frame = new ListFrame();
         frame.setVisible(true);
@@ -15,6 +19,8 @@ class ListApp {
 
 class ListFrame extends JFrame {
     ArrayList<Figure> figs = new ArrayList<Figure>();
+    Figure foco = null;
+    Point pMouse = null;
     Random rand = new Random();
 
     ListFrame () {
@@ -47,12 +53,28 @@ class ListFrame extends JFrame {
 		    } else if (evt.getKeyChar() == 'l') {
                         figs.add(new Line(x,y, x2,y2));
 		    }
+		      else if(evt.getKeyCode() == 007){
+			figs.remove(foco);
+		    }
                     repaint();
                 }
             }
         );
+	this.addMouseListener(
+            new MouseAdapter(){
+                public void mousePressed(MouseEvent evt){
+                    pMouse = getMousePosition();
+                    foco = null;
+                    for (Figure fig: this.figs){ // problema com o this.figs
+                        if (fig.clicked(pMouse.x,pMouse.y)){ //ainda nao consegui resolver o problema com o fig.clicked
+                            foco = fig;
+                        }
+                    }
+                }
+            }
+        );
 
-        this.setTitle("Lista de Figuras");
+        this.setTitle("Projeto");
         this.setSize(350, 350);
     }
 
@@ -61,5 +83,6 @@ class ListFrame extends JFrame {
         for (Figure fig: this.figs) {
             fig.paint(g);
         }
+// lembrete: trabalhar melhor a parte de cor de fundo e borda 
     }
 }
