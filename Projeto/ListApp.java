@@ -10,7 +10,7 @@ import java.util.Random;
 import figures.*;
 
 
-class Projeto {
+class ListApp {
     public static void main (String[] args) {
         ListFrame frame = new ListFrame();
         frame.setVisible(true);
