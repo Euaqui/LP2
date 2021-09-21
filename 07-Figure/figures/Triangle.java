@@ -20,6 +20,7 @@ public class Triangle extends Figure {
             this.w, this.h, this.x1, this.y1);
     }
     public void paint (Graphics g) {
+	super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
 	//g.setColor(new Color(139,0,139));
 	//g2d.fillPolygon(new int[] {this.x1, this.x2, this.x3}, new int[] {this.y1, this.y2, this.y3}, 3);
