@@ -31,49 +31,62 @@ class ListFrame extends JFrame {
                 }
             }
         );
+	this.addMouseListener(
+            new MouseAdapter(){
+                public void mousePressed(MouseEvent evt){
+                    pMouse = getMousePosition();
+                    foco = null;
+                    for (Figure fig: figs){ 
+                        if (fig.clicked(pMouse.x,pMouse.y)){
+                            foco = fig;
+                        }
+			if (foco!=null){
+			    figs.add(foco);
+			    figs.remove(foco);			    
+			}
+			repaint();
+                    }
+                }
+            }
+        );
 
         this.addKeyListener (
             new KeyAdapter() {
                 public void keyPressed (KeyEvent evt) {
-                    int x = rand.nextInt(350);
-		    int x2 = rand.nextInt(350);
-		    int x3 = rand.nextInt(350);
-                    int y = rand.nextInt(350);
-		    int y2 = rand.nextInt(350);
-		    int y3 = rand.nextInt(350);
-                    int w = rand.nextInt(50);
-                    int h = rand.nextInt(50);
+		    pMouse = getMousePosition();
+                    int x = pMouse.x;
+		    int y = pMouse.y;
+                    int w = 70;
+                    int h = 70;
+
                     if (evt.getKeyChar() == 'r') {
-                        Rect r = new Rect(x,y, w,h);
+                        Rect r = new Rect(x,y, w,h, Color.yellow, Color.green);
                         figs.add(r);
-                    } else if (evt.getKeyChar() == 'e') {
-                        figs.add(new Ellipse(x,y, w,h));
-                    } else if (evt.getKeyChar() == 't') {
-                        figs.add(new Triangle(x,x2,x3, y,y2,y3));
-		    } else if (evt.getKeyChar() == 'l') {
-                        figs.add(new Line(x,y, x2,y2));
+
+                    } 
+
+		    if (evt.getKeyChar() == 'e') {
+                        figs.add(new Ellipse(x,y, w,h, Color.green, Color.red));
+
+                    }  
+
+		    if (evt.getKeyChar() == 't') {
+                        figs.add(new Triangle(x,y, w,h, Color.red, Color.blue));
+
+		    } 
+
+		    if (evt.getKeyChar() == 'p') {
+                        figs.add(new Pentagon(x,y, w,h, Color.blue, Color.yellow));
 		    }
-		      else if(evt.getKeyCode() == 007){
+		      
+		    if(evt.getKeyCode() == 127){
 			figs.remove(foco);
 		    }
                     repaint();
                 }
             }
         );
-	this.addMouseListener(
-            new MouseAdapter(){
-                public void mousePressed(MouseEvent evt){
-                    pMouse = getMousePosition();
-                    foco = null;
-                    for (Figure fig: this.figs){ // problema com o this.figs
-                        if (fig.clicked(pMouse.x,pMouse.y)){ //ainda nao consegui resolver o problema com o fig.clicked
-                            foco = fig;
-                        }
-                    }
-                }
-            }
-        );
-
+	
         this.setTitle("Projeto");
         this.setSize(350, 350);
     }
@@ -83,6 +96,5 @@ class ListFrame extends JFrame {
         for (Figure fig: this.figs) {
             fig.paint(g);
         }
-// lembrete: trabalhar melhor a parte de cor de fundo e borda 
     }
 }
