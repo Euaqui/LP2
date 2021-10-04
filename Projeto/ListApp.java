@@ -111,7 +111,7 @@ class ListFrame extends JFrame {
 			foco.h-=10; 
                     }
 		      
-		    if(evt.getKeyCode() == 127){
+		    if(evt.getKeyCode() == 8){
 			figs.remove(foco);
 		    }
                     repaint();
