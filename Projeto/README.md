@@ -6,7 +6,7 @@
 <p>2)A figura só pode ser movimentada com o mouse quando ela estiver em foco.
 <p>3)A movimentação da figura com o mouse acontece quando a figura está sendo pressionada pelo clique do botão esquerdo do mouse.
 <p>  
-
+<p>
 **Criação,Remoção e Ajuste de Propriedades**
 
 <p>-A tecla 'r' adiciona retângulos
