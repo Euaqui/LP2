@@ -19,7 +19,7 @@
 <p>-A tecla 'b' muda a cor da borda da figura em foco
 <p>-A tecla 'a' aumenta a altura e a largura da figura que está em foco
 <p>-A tecla 'd' diminui a altura e a largura da figura que está em foco
-<p>-A tecla 'delete' remove a figura que está em foco
+<p>-A tecla 'backspace' remove a figura que está em foco
 
   
   
