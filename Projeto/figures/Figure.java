@@ -4,10 +4,10 @@ import java.awt.Graphics;
 import java.awt.*;
 
 public abstract class Figure {
-    int x, y;
-    int w, h; 
-    Color fundo;
-    Color borda;
+    public int x, y;
+    public int w, h; 
+    public Color fundo;
+    public Color borda;
 
     public Figure(int x, int y, int w, int h, Color fundo, Color borda){
         this.x = x;
@@ -23,4 +23,5 @@ public abstract class Figure {
     public boolean clicked (int coordX, int coordY) {
           return (((x <= coordX) && (y <= coordY)) && ((coordX <= (x + w)) && (coordY <= (y + h))));
     }
+  
 }
