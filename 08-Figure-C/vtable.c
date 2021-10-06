@@ -1,3 +1,6 @@
+//Segue arquivo '.PNG' 
+//https://user-images.githubusercontent.com/88299200/136122367-eb33dbbb-bd50-40a1-bb5f-0fc9b972c556.png
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
