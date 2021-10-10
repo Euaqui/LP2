@@ -21,7 +21,15 @@ public abstract class Figure {
     public abstract void paint (Graphics g);
 
     public boolean clicked (int coordX, int coordY) {
-          return (((x <= coordX) && (y <= coordY)) && ((coordX <= (x + w)) && (coordY <= (y + h))));
+        return (((x <= coordX) && (y <= coordY)) && ((coordX <= (x + w)) && (coordY <= (y + h))));
+    }
+    
+    public Color contorno = new Color(0,0,0);
+
+    public void AchaFoco(Graphics g){
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(contorno);
+        g2d.drawRect(this.x-4,this.y-4,this.w+8,this.h+8);
     }
   
-}
+} 
