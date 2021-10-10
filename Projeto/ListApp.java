@@ -8,8 +8,9 @@ import java.util.ArrayList;
 
 import figures.*;
 
+//baseado no listapp3
 
-class ListApp {
+class Projeto {
     public static void main (String[] args) {
         ListFrame frame = new ListFrame();
         frame.setVisible(true);
@@ -38,21 +39,26 @@ class ListFrame extends JFrame {
 	this.addMouseListener(
             new MouseAdapter(){
                 public void mousePressed(MouseEvent evt){
-                    pMouse = getMousePosition();
-                    foco = null;
-                    for (Figure fig: figs){ 
-                        if (fig.clicked(pMouse.x,pMouse.y)){
-                            foco = fig;
-			    xf = (foco.x - pMouse.x);
-			    yf = (foco.y - pMouse.y);
+                    try{
+                        int x = evt.getX();
+                        int y = evt.getY();
+                        pMouse = getMousePosition();
+                        foco = null;
+                        for (Figure fig: figs){
+                            if (fig.clicked(pMouse.x,pMouse.y)){
+                                foco = fig;
+                                xf = foco.x - pMouse.x;
+                                yf = foco.y - pMouse.y;
+                            }
                         }
-
-			if (foco!=null){
-			    figs.add(foco);
-			    figs.remove(foco);			    
-			}
-			repaint();
-                    }
+                        if (foco!=null){
+                            figs.remove(foco);
+                            figs.add(foco);
+                        }
+                        repaint();
+                        
+                    }catch(Exception x){}
+                    
                 }
             }
         );
@@ -107,8 +113,14 @@ class ListFrame extends JFrame {
                     }
 
                     if (evt.getKeyChar()=='d'){
-                        foco.w-=10;
-			foco.h-=10; 
+			if (foco.w<=10 || foco.h<=10){
+                        	foco.w-=0;
+				foco.h-=0;
+			}
+			else{
+				foco.w-=10;
+				foco.h-=10;
+			} 
                     }
 		      
 		    if(evt.getKeyCode() == 8){
@@ -167,6 +179,9 @@ class ListFrame extends JFrame {
         super.paint(g);
 
         for (Figure fig: this.figs) {
+	    if(foco==fig){
+		    foco.AchaFoco(g);
+	    }
             fig.paint(g);
         }
 
