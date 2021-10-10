@@ -9,7 +9,7 @@
 <p>
   
 **Criação,Remoção e Ajuste de Propriedades**
-
+<p>-A figura em foco terá um quadrado preto em volta
 <p>-A tecla 'r' adiciona retângulos
 <p>-A tecla 'c' adiciona círculos
 <p>-A tecla 'p' adiciona pentágonos
