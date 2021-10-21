@@ -3,6 +3,8 @@ package figures;
 import java.awt.Graphics;
 import java.awt.*;
 
+import ivisible.*;
+
 public abstract class Figure implements IVisible {
     public int x, y;
     public int w, h; 
