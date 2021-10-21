@@ -3,7 +3,7 @@ package figures;
 import java.awt.Graphics;
 import java.awt.*;
 
-public abstract class Figure {
+public abstract class Figure implements IVisible {
     public int x, y;
     public int w, h; 
     public Color fundo;
