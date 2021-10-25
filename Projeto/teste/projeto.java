@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 import figures.*;
-import ivisible.*;
 
 //baseado no listapp3
 
@@ -22,7 +21,7 @@ class ListFrame extends JFrame {
     ArrayList<Figure> figs = new ArrayList<Figure>();
     ArrayList<Button> buts = new ArrayList<Button>();
     Figure foco = null;
-    Button focob = null;
+    Button focoB = null;
     Point pMouse = null;
 
     int xf,yf;
@@ -39,6 +38,13 @@ class ListFrame extends JFrame {
                 }
             }
         );
+	
+	buts.add(new Button(0,new Rect(20,50,20,20,Color.BLACK,Color.BLACK)));
+        buts.add(new Button(1,new Circle(20,70,20,20,Color.BLACK,Color.BLACK)));
+        buts.add(new Button(2,new Triangle(20,90,20,20,Color.BLACK,Color.BLACK)));
+        buts.add(new Button(3,new Pentagon(20,110,20,20,Color.BLACK,Color.BLACK)));
+
+
 	this.addMouseListener(
             new MouseAdapter(){
                 public void mousePressed(MouseEvent evt){
@@ -47,48 +53,27 @@ class ListFrame extends JFrame {
                         int y = evt.getY();
                         pMouse = getMousePosition();
                         foco = null;
-                        for (Figure fig: figs){
-                            if (fig.clicked(pMouse.x,pMouse.y)){
-                                foco = fig;
-                                xf = foco.x - pMouse.x;
-                                yf = foco.y - pMouse.y;
+			
+			    for (Figure fig: figs){
+                            	if (fig.clicked(pMouse.x,pMouse.y)){
+                                	foco = fig;
+                                	xf = foco.x - pMouse.x;
+                                	yf = foco.y - pMouse.y;
+                            	}
                             }
+			
+                        	if (foco!=null){
+                            		figs.remove(foco);
+                            		figs.add(foco);
+                        	}
+                        	repaint();
                         }
-                        if (foco!=null){
-                            figs.remove(foco);
-                            figs.add(foco);
-                        }
-                        repaint();
-                        
-                    }catch(Exception x){}
-                    
-                }
-		public void buttonPressed(MouseEvent evb){
-                    try{
-                        int x = evb.getX();
-                        int y = evb.getY();
-                        pMouse = getMousePosition();
-                        focob = null;
-                        for (Button butt: buts){
-                            if (butt.clicked(pMouse.x,pMouse.y)){
-                                focob = butt;
-                                //xf = foco.x - pMouse.x;
-                                //yf = foco.y - pMouse.y;
-                            }
-                        }
-                        if (focob!=null){
-                            buts.remove(focob);
-                            buts.add(focob);
-                        }
-                        repaint();
-                        
-                    }catch(Exception x){}
-                    
-                }
 
+                    }catch(Exception x){}
+
+                }
             }
         );
-
         this.addMouseMotionListener(
             new MouseMotionAdapter() {
                 public void mouseDragged(MouseEvent move) {
@@ -198,25 +183,21 @@ class ListFrame extends JFrame {
             }
         );
 	
-	buts.add(new Button(1, new Rect(5, 5, 5,3, Color.BLACK, Color.BLACK)));
-
-
-
-
         this.setTitle("Projeto");
-        this.setSize(350, 350);
+        this.setSize(400, 400);
     }
 
-    public void paint (Graphics g, boolean emFoco) {
+    public void paint (Graphics g) {
         super.paint(g);
 
         for (Figure fig: this.figs) {
-
 	    if(foco==fig){
-		foco.AchaFoco(g);
+		    foco.AchaFoco(g,true);
 	    }
-
             fig.paint(g,true);
+        }
+	for(Button but: buts){
+            but.paint(g,true);
         }
 
     }
