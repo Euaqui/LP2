@@ -16,15 +16,8 @@ public class Circle extends Figure {
             this.w, this.h, this.x, this.y);
     }
 
-    public Color contorno = new Color(0,0,0);
-    public void paint (Graphics g, boolean emFoco) {
+    public void paint (Graphics g, boolean focused) {
         Graphics2D g2d = (Graphics2D) g;
-
-	if (emFoco==true){
-		g2d.setColor(contorno);
-        	g2d.drawRect(this.x-4,this.y-4,this.w+8,this.h+8);
-	}
-
         g2d.setColor(this.fundo);
         g2d.fillOval(this.x,this.y, this.w,this.h);
         g2d.setColor(this.borda);
