@@ -3,34 +3,32 @@ import figures.*;
 import ivisible.*;
 
 public class Button implements IVisible {
-    static int SPC = 20;
-    static int DIM = 40;
-    static int PAD = 4;
-
     public  int    idx;
     private Figure fig;
 
     public Button (int idx, Figure fig) {
         this.idx = idx;
         this.fig = fig;
-        this.fig.x = PAD+SPC;
-        this.fig.y = PAD+SPC + idx*DIM;
-        this.fig.w = DIM-PAD*2;
-        this.fig.h = DIM-PAD*2;
+        
     }
 
     public boolean clicked (int x, int y) {
-        return SPC<=x && x<=SPC+DIM && SPC+this.idx*DIM<=y && y<=SPC+this.idx*DIM+DIM;
+        return (fig.x-7<=x && x<=fig.x+fig.w+15 && fig.y-7<=y && y<=fig.y+fig.h+15);
     }
 
     public void paint (Graphics g, boolean focused) {
         Graphics2D g2d = (Graphics2D) g;
 
-        g2d.setColor(focused ? Color.GRAY : Color.LIGHT_GRAY);
-        g2d.fillRect(SPC, SPC+this.idx*DIM, DIM, DIM);
+	if(focused){
+        	g2d.setColor(Color.GRAY);
+        }
+	else{
+		g2d.setColor(Color.WHITE);
+	}
 
+        g2d.fillRect(fig.x, fig.y, fig.w, fig.h);
         g2d.setColor(Color.BLACK);
-        g2d.drawRect(SPC, SPC+this.idx*DIM, DIM, DIM);
+        g2d.drawRect(fig.x-4, fig.y-4, fig.w+8, fig.h+8);
 
         this.fig.paint(g, false);
     }
