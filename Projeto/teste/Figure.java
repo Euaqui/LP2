@@ -3,10 +3,11 @@ package figures;
 import java.awt.Graphics;
 import java.awt.*;
 
-import ivisible.*;
 import java.io.Serializable;
 
-public abstract class Figure implements IVisible, Serializable{
+import ivisible.*;
+
+public abstract class Figure implements IVisible, Serializable {
     public int x, y;
     public int w, h; 
     public Color fundo;
@@ -29,7 +30,7 @@ public abstract class Figure implements IVisible, Serializable{
     
     public Color contorno = new Color(0,0,0);
 
-    public void AchaFoco(Graphics g){
+    public void AchaFoco(Graphics g,boolean focused){
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(contorno);
         g2d.drawRect(this.x-4,this.y-4,this.w+8,this.h+8);
