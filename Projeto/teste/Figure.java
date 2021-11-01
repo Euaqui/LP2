@@ -3,7 +3,7 @@ package figures;
 import java.awt.Graphics;
 import java.awt.*;
 
-import java.io.Serializable;
+import java.io.*;
 
 import ivisible.*;
 
@@ -33,7 +33,7 @@ public abstract class Figure implements IVisible, Serializable {
     public void AchaFoco(Graphics g,boolean focused){
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(contorno);
-        g2d.drawRect(this.x-4,this.y-4,this.w+8,this.h+8);
+        g2d.drawRect(this.x-3,this.y-3,this.w+7,this.h+7);
     }
   
 } 
