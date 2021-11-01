@@ -4,6 +4,8 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 
+import java.io.*;
+
 import java.util.ArrayList;
 
 import figures.*;
@@ -11,6 +13,7 @@ import figures.*;
 //baseado no listapp3
 
 class Projeto {
+	
     public static void main (String[] args) {
         ListFrame frame = new ListFrame();
         frame.setVisible(true);
@@ -20,6 +23,7 @@ class Projeto {
 class ListFrame extends JFrame {
     ArrayList<Figure> figs = new ArrayList<Figure>();
     ArrayList<Button> buts = new ArrayList<Button>();
+    private static final long serialVersionUID = 1L;
     Figure foco = null;
     Button focoB = null;
     Point pMouse = null;
@@ -29,44 +33,91 @@ class ListFrame extends JFrame {
     int baldinhodopaint = 0;
     Color paleta[] = {Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.WHITE, Color.BLACK, Color.GRAY, Color.PINK, Color.ORANGE, Color.MAGENTA};
     
-
+    @SuppressWarnings("unchecked") 
     ListFrame () {
+	try{
+	    FileInputStream f = new FileInputStream("proj.bin");
+            ObjectInputStream o = new ObjectInputStream(f);
+            ArrayList<Figure> object = (ArrayList<Figure>)o.readObject();
+	    this.figs = object;
+            o.close();
+	}catch(Exception x) { System.out.println("ERRO!"); }
+
         this.addWindowListener (
             new WindowAdapter() {
                 public void windowClosing (WindowEvent e) {
+		    try{
+			FileOutputStream f = new FileOutputStream("proj.bin");
+                        ObjectOutputStream o = new ObjectOutputStream(f);
+                        o.writeObject(figs);
+                        o.flush();
+                        o.close();
+                    }catch (Exception x){}
+
+
                     System.exit(0);
                 }
             }
         );
 	
 	buts.add(new Button(0,new Rect(20,50,20,20,Color.BLACK,Color.BLACK)));
-        buts.add(new Button(1,new Circle(20,70,20,20,Color.BLACK,Color.BLACK)));
-        buts.add(new Button(2,new Triangle(20,90,20,20,Color.BLACK,Color.BLACK)));
-        buts.add(new Button(3,new Pentagon(20,110,20,20,Color.BLACK,Color.BLACK)));
-
+        buts.add(new Button(1,new Circle(20,80,20,20,Color.BLACK,Color.BLACK)));
+        buts.add(new Button(2,new Triangle(20,110,20,20,Color.BLACK,Color.BLACK)));
+        buts.add(new Button(3,new Pentagon(20,140,20,20,Color.BLACK,Color.BLACK)));
 
 	this.addMouseListener(
             new MouseAdapter(){
                 public void mousePressed(MouseEvent evt){
                     try{
+
                         int x = evt.getX();
                         int y = evt.getY();
                         pMouse = getMousePosition();
                         foco = null;
-			
+			if ((5 <= pMouse.x && pMouse.x <= 50) && (30 <= pMouse.y && pMouse.y <= 165)) {
+                            foco=null;
+                            for(Button but:buts){
+                                if(but.clicked(pMouse.x,pMouse.y)){
+                                    focoB = but;
+                                }
+                                repaint();
+                            }
+                        }
+                        else if(focoB != null){
+                            int idx = focoB.idx;
+                            pMouse = getMousePosition();
+                            int w = 70;
+                            int h = 70;
+                            
+                            if (idx==0){
+                                figs.add(new Rect(x,y, w,h,Color.yellow,Color.green));
+                            }
+                            else if(idx==1){
+                                figs.add(new Circle(x,y,w,h,Color.green,Color.red));
+                            }
+                            else if(idx==2){
+                                figs.add(new Triangle(x,y,w,h,Color.red,Color.blue));
+                            }
+                            else if(idx==3){
+                                figs.add(new Pentagon(x,y,w,h,Color.blue,Color.yellow));
+                            }
+			    focoB = null;
+			    repaint();
+			}
+			else{
 			    for (Figure fig: figs){
                             	if (fig.clicked(pMouse.x,pMouse.y)){
                                 	foco = fig;
                                 	xf = foco.x - pMouse.x;
                                 	yf = foco.y - pMouse.y;
                             	}
-                            }
+                             }
 			
-                        	if (foco!=null){
-                            		figs.remove(foco);
-                            		figs.add(foco);
-                        	}
-                        	repaint();
+                             if (foco!=null){
+                            	figs.remove(foco);
+                            	figs.add(foco);
+                              }
+                              repaint();
                         }
 
                     }catch(Exception x){}
@@ -197,7 +248,7 @@ class ListFrame extends JFrame {
             fig.paint(g,true);
         }
 	for(Button but: buts){
-            but.paint(g,true);
+            but.paint(g,but == focoB);
         }
 
     }
