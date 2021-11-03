@@ -21,5 +21,5 @@ void rect_drag (Rect* this, int dx, int dy){
 }
 
 void rect_print (Rect* this){
-    printf("Retangulo na posicao(%d,%d) e dimensoes(%d,%d)\n",this->x,this->y,this->w,this->h);
+    printf("Retangulo na posicao(%d,%d) de dimensoes(%d,%d)\n",this->x,this->y,this->w,this->h);
 }
