@@ -21,8 +21,5 @@ void rect_drag (Rect* this, int dx, int dy){
 }
 
 void rect_print (Rect* this){
-    printf("Rect na posicao(%d,%d),dimensoes(%d,%d)\n",this->x,this->y,this->w,this->h);
+    printf("Rect na posicao(%d,%d) e dimensoes(%d,%d)\n",this->x,this->y,this->w,this->h);
 }
-
-//https://github.com/RodrigoViana29/LP2/tree/main/Mod%204-2.0%20Sobre%20Tipos%20Abstratos%20de%20Dados
-//https://github.com/Marcus-Vn/LP2/blob/main/10-Encapsulamento/rect.c
