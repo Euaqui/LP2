@@ -1,6 +1,6 @@
 import java.awt.*;
 
-import ivisible,*;
+import ivisible.*;
 
 import figures.*;
 
