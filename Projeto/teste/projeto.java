@@ -28,10 +28,10 @@ class ListFrame extends JFrame {
     Button focoB = null;
     Point pMouse = null;
 
-    int xf,yf;
-    int contorno = 0;
-    int baldinhodopaint = 0;
-    Color paleta[] = {Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.WHITE, Color.BLACK, Color.GRAY, Color.PINK, Color.ORANGE, Color.MAGENTA};
+    private int xf,yf;
+    private int contorno = 0;
+    private int baldinhodopaint = 0;
+    private Color paleta[] = {Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.WHITE, Color.BLACK, Color.GRAY, Color.PINK, Color.ORANGE, Color.MAGENTA};
     
     @SuppressWarnings("unchecked") 
     ListFrame () {
@@ -104,7 +104,7 @@ class ListFrame extends JFrame {
                             }
 			    else if(idx==4){
                                 figs.remove(foco);
-				//figs.clear();  rever pq apaga todas as figuras
+
                             }
 			    focoB = null;
 			    repaint();
@@ -243,7 +243,7 @@ class ListFrame extends JFrame {
         this.setSize(400, 400);
     }
 
-    public void paint (Graphics g) {
+    public void paint (Graphics g/*, boolean focused*/) {
         super.paint(g);
 
         for (Figure fig: this.figs) {
