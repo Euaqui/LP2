@@ -64,6 +64,7 @@ class ListFrame extends JFrame {
         buts.add(new Button(1,new Circle(20,80,20,20,Color.BLACK,Color.BLACK)));
         buts.add(new Button(2,new Triangle(20,110,20,20,Color.BLACK,Color.BLACK)));
         buts.add(new Button(3,new Pentagon(20,140,20,20,Color.BLACK,Color.BLACK)));
+	buts.add(new Button_Delete(4,new Rect(20,170,20,20,Color.BLACK,Color.BLACK)));
 
 	this.addMouseListener(
             new MouseAdapter(){
@@ -74,7 +75,7 @@ class ListFrame extends JFrame {
                         int y = evt.getY();
                         pMouse = getMousePosition();
                         foco = null;
-			if ((5 <= pMouse.x && pMouse.x <= 50) && (30 <= pMouse.y && pMouse.y <= 165)) {
+			if ((5 <= pMouse.x && pMouse.x <= 50) && (30 <= pMouse.y && pMouse.y <= 210)) {
                             foco=null;
                             for(Button but:buts){
                                 if(but.clicked(pMouse.x,pMouse.y)){
@@ -100,6 +101,10 @@ class ListFrame extends JFrame {
                             }
                             else if(idx==3){
                                 figs.add(new Pentagon(x,y,w,h,Color.blue,Color.yellow));
+                            }
+			    else if(idx==4){
+                                figs.remove(foco);
+				//figs.clear();  rever pq apaga todas as figuras
                             }
 			    focoB = null;
 			    repaint();
