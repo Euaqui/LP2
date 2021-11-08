@@ -1,3 +1,9 @@
+import java.awt.*;
+
+import ivisible,*;
+
+import figures.*;
+
 public class Button implements IVisible {
     protected int idx;
     protected Figure fig;
