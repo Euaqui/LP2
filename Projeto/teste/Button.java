@@ -1,10 +1,6 @@
-import java.awt.*;
-import figures.*;
-import ivisible.*;
-
 public class Button implements IVisible {
-    public  int    idx;
-    private Figure fig;
+    protected int idx;
+    protected Figure fig;
 
     public Button (int idx, Figure fig) {
         this.idx = idx;
