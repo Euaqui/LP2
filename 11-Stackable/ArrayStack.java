@@ -4,7 +4,7 @@ public class ArrayStack implements IStackable{
 	private ArrayList<Integer> s2 = new ArrayList<Integer>();
 	
 	int sz2 = 0;
-	
+	int v2;
 	public void push(int v2) {
 		s2.add(v2);
     		sz2++;
@@ -12,8 +12,9 @@ public class ArrayStack implements IStackable{
 
 	
 	public int pop() {
-		s2.remove(v2);
-    		sz2--;
+		sz2--;
+		return s2.remove(s2.size()-1);
+    		
 	}
   
   
