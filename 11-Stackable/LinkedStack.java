@@ -7,13 +7,13 @@ public class LinkedStack implements IStackable{
   
 	public void push(int v1) {
 		s1.addFirst(v);
-    sz1++;
+    		sz1++;
 	}
 
 	
 	public int pop() {
 		s1.removeFirst();
-    sz1--;
+    		sz1--;
 	}
   
   public int size() {
