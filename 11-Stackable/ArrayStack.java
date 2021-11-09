@@ -18,7 +18,7 @@ public class ArrayStack implements IStackable{
   
   
 	public int size() {
-		return sz;
+		return sz2;
 	}
 
 }
