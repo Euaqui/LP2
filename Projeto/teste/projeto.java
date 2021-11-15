@@ -65,7 +65,8 @@ class ListFrame extends JFrame {
         buts.add(new Button(2,new Triangle(20,110,20,20,Color.BLACK,Color.BLACK)));
         buts.add(new Button(3,new Pentagon(20,140,20,20,Color.BLACK,Color.BLACK)));
 	buts.add(new Button_Delete(4,new Rect(20,170,20,20,Color.BLACK,Color.BLACK)));
-
+	buts.add(new Button_Clear(5,new Rect(20,200,20,20,Color.BLACK,Color.BLACK)));
+	    
 	this.addMouseListener(
             new MouseAdapter(){
                 public void mousePressed(MouseEvent evt){
@@ -105,6 +106,9 @@ class ListFrame extends JFrame {
 			    else if(idx==4){
                                 figs.remove(foco);
 
+                            }
+			    else if(idx==5){
+                                figs.clear();
                             }
 			    focoB = null;
 			    repaint();
